@@ -83,7 +83,6 @@ else
     export OPTIONS_FILE_PARAM=""
 fi
 
-
 if [ "$MODE" = "server" ]; then
 
     # Get external IP address
