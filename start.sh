@@ -41,27 +41,21 @@ fi
 if [ -z "$MODE" ]; then
     export MODE=server
 fi
-
 if [ -z "$PROXY_MODE" ]; then
     export PROXY_MODE=transparent-TCP
 fi
-
 if [ -z "$TRANSPORT" ]; then
     export TRANSPORT=obfs2
 fi
-
 if [ -z "$LISTEN_IP" ]; then
     export LISTEN_IP=0.0.0.0
 fi
-
 if [ -z "$LISTEN_PORT" ]; then
     export LISTEN_PORT=443
 fi
-
 if [ -z "$FORWARD_IP" ]; then
     export FORWARD_IP=127.0.0.1
 fi
-
 if [ -z "$FORWARD_PORT" ]; then
     export FORWARD_PORT=1194
 fi
