@@ -1,6 +1,6 @@
 {
-"shadow": {
-    "password": "P49chUZQNeYtxeeG",
-    "cipherName": "AES-256-GCM"
+    "shadow": {
+        "password": "P49chUZQNeYtxeeG",
+        "cipherName": "AES-256-GCM"
     }
 }
