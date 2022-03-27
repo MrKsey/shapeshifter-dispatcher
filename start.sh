@@ -84,25 +84,26 @@ else
 fi
 
 if [ "$MODE" = "server" ]; then
-
     # Get external IP address
     if [ "$LISTEN_IP" = "0.0.0.0" ]; then
         export LISTEN_IP=$(curl ifconfig.me)
         echo "$(date): LISTEN_IP changed from 0.0.0.0 to $LISTEN_IP"
         echo $LISTEN_IP > /state/_SERVER_PUBLIC_LISTEN_IP.txt
         echo "$(date): SERVER PUBLIC IP writed to _SERVER_PUBLIC_LISTEN_IP.txt"
-	fi
-	
-	# Start proxy
-	shapeshifter-dispatcher $PROXY_MODE_PARAM -server -state state -orport $FORWARD_IP:$FORWARD_PORT -transports $TRANSPORT -bindaddr $TRANSPORT-$LISTEN_IP:$LISTEN_PORT -logLevel DEBUG -enableLogging $OPTIONS_FILE_PARAM &
-	
-	# Set correct params in file obfs4_bridgeline.txt and obfs4_client.json
+    fi
+
+    # Start proxy
+    shapeshifter-dispatcher $PROXY_MODE_PARAM -server -state state -orport $FORWARD_IP:$FORWARD_PORT -transports $TRANSPORT -bindaddr $TRANSPORT-$LISTEN_IP:$LISTEN_PORT -logLevel DEBUG -enableLogging $OPTIONS_FILE_PARAM &
+    
+    # Set correct params in file obfs4_bridgeline.txt and obfs4_client.json
     if [ "$TRANSPORT" = "obfs4" ]; then
         sleep 3
-		if [ -s /state/obfs4_bridgeline.txt ]; then
-	        export FINGERPRINT=$(jq -r '."node-id"' /state/obfs4_state.json | tr 'a-z' 'A-Z')
+        if [ -s /state/obfs4_bridgeline.txt ]; then
+	    export FINGERPRINT=$(jq -r '."node-id"' /state/obfs4_state.json | tr 'a-z' 'A-Z')
             grep --regexp ^[a-zA-Z] /state/obfs4_bridgeline.txt | sed "s/<IP ADDRESS>/$LISTEN_IP/g" | sed "s/<PORT>/$LISTEN_PORT/g" | sed "s/<FINGERPRINT>/$FINGERPRINT/g" > /state/_OBFS4_BRIDGE.txt
+	    echo "$(date): obfs4 brifge line writed to _OBFS4_BRIDGE.txt"
             sed "s/.*cert=//" /state/_OBFS4_BRIDGE.txt | cut -d " " -f 1 > /state/_OBFS4_CLIENT_CERT.txt
+	    echo "$(date): obfs4 client cert writed to _OBFS4_CLIENT_CERT.txt"
         fi
     fi 
 else
