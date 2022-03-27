@@ -15,7 +15,7 @@ More info:
 
 ### Installing
 
-- сreate "/state" directory (for example) on your host
+- сreate "/state" directory (for example) on your docker host
 - put ["config.ini"](https://raw.githubusercontent.com/MrKsey/shapeshifter-dispatcher/main/config.ini) file to "/state", set the desired options.
 - connect host directory "/state" to the container directory "/state" and start container:
 ```
