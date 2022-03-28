@@ -85,11 +85,12 @@ fi
 
 if [ "$MODE" = "server" ]; then
     # Get external IP address
-    if [ "$LISTEN_IP" = "0.0.0.0" ]; then
-        export LISTEN_IP=$(curl ifconfig.me)
-        echo "$(date): LISTEN_IP changed from 0.0.0.0 to $LISTEN_IP"
-        echo $LISTEN_IP > /state/_SERVER_PUBLIC_LISTEN_IP.txt
-        echo "$(date): SERVER PUBLIC IP writed to _SERVER_PUBLIC_LISTEN_IP.txt"
+    export LISTEN_IP_EXT=$(curl ifconfig.me)
+    echo $LISTEN_IP_EXT > /state/_SERVER_PUBLIC_LISTEN_IP.txt
+    echo "$(date): SERVER PUBLIC IP writed to _SERVER_PUBLIC_LISTEN_IP.txt"
+    if [ -z "$LISTEN_IP" ] && [ ! -z "$LISTEN_IP_EXT" ]; then
+        export LISTEN_IP=$LISTEN_IP_EXT
+        echo "$(date): LISTEN_IP changed to $LISTEN_IP"
     fi
 
     # Start proxy
