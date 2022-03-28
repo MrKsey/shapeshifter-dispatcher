@@ -110,4 +110,4 @@ else
     shapeshifter-dispatcher $PROXY_MODE_PARAM -client -state state -target $FORWARD_IP:$FORWARD_PORT -transports $TRANSPORT -proxylistenaddr $LISTEN_IP:$LISTEN_PORT -logLevel DEBUG -enableLogging $OPTIONS_FILE_PARAM &
 fi
 
-tail -f /state/dispatcher.log
+tail -f /dev/null
