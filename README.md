@@ -7,7 +7,7 @@ The purpose of this technology is to change the characteristics of network traff
 There are two components to Shapeshifter: transports and the dispatcher. Each transport provide different approach to shapeshifting.
 The purpose of the dispatcher is to provide different proxy interfaces to using transports. Through the use of these proxies, application traffic can be sent over the network in a shapeshifted form that bypasses network filtering, allowing the application to work on networks where it would otherwise be blocked or heavily throttled.
 
-![shapeshifter-dispatcher](https://raw.githubusercontent.com/MrKsey/shapeshifter-dispatcher/master/proxy_scheme.jpg)
+![shapeshifter-dispatcher](https://raw.githubusercontent.com/MrKsey/shapeshifter-dispatcher/master/proxy_scheme_small.jpg)
 
 More info:
 - https://github.com/OperatorFoundation/shapeshifter-dispatcher
