@@ -32,7 +32,7 @@ fi
 if [ "$OS_UPDATE" = "true" ]; then
     echo "============================================="
     echo "$(date): Start checking for OS updates ..."
-    apk update && apk upgrade
+    apt-get update && apt-get upgrade -y
     echo "Finished checking for OS updates."
     echo "============================================="
 fi
