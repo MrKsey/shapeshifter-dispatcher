@@ -21,7 +21,7 @@ More info:
 ```
 docker run --name shapeshifter-dispatcher -e TZ=Europe/Moscow -d --restart=unless-stopped --net=host -v /state:/state ksey/shapeshifter-dispatcher
 ```
-# #
+
 ### OperatorFoundation/shapeshifter-dispatcher last release:
 2021-04-08 00:06:28: [OperatorFoundation/shapeshifter-dispatcher, RELEASE] gopath update fix:
 
