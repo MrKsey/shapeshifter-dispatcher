@@ -23,6 +23,6 @@ docker run --name shapeshifter-dispatcher -e TZ=Europe/Moscow -d --restart=unles
 ```
 
 
-2021-04-08 00:06:28: [OperatorFoundation/shapeshifter-dispatcher, RELEASE] gopath update fix:
 
-made travis test and sh tests work with the new go path from a newer version of go
+
+
