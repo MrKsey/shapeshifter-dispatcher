@@ -27,3 +27,4 @@ docker run --name shapeshifter-dispatcher -e TZ=Europe/Moscow -d --restart=unles
 
 
 # #
+### OperatorFoundation/shapeshifter-dispatcher last release:
