@@ -26,7 +26,7 @@ docker run --name shapeshifter-dispatcher -e TZ=Europe/Moscow -d --restart=unles
 
 
 
-# #
+
 ### OperatorFoundation/shapeshifter-dispatcher last release:
 2022-06-30 16:24:22: [OperatorFoundation/shapeshifter-dispatcher, RELEASE] v3.0.1 - completed v3 release:
 
